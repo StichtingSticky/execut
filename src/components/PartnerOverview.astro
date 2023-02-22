@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content'
+import { Image } from '@astrojs/image/components'
+
+import { resolve } from '$utils/resolve'
+
+const partners = await getCollection('partners')
+---
+
+<div class="mt-12 flex flex-col content-center p-4">
+  <h3 class="text-off-red text-bold my-4 text-center font-mono text-2xl">
+    Our partners
+  </h3>
+
+  <ul class="grid place-content-evenly gap-4 md:grid-cols-2">
+    {
+      partners
+        .filter((partner) => {
+          const { tier } = partner.data
+
+          return tier === 'Gold' || tier === 'Platinum'
+        })
+        .map((partner) => {
+          const { slug, data } = partner
+
+          const { name } = data
+
+          const logo = resolve(slug)
+
+          return (
+            <li class="flex h-24 px-4">
+              <Image
+                class="object-contain saturate-50 transition hover:saturate-100"
+                alt={name}
+                src={logo}
+              />
+            </li>
+          )
+        })
+    }
+  </ul>
+
+  <a class="my-2 text-center text-green underline" href="#partners"
+    >And many more!</a
+  >
+</div>

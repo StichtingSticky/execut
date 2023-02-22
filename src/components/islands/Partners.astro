@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content'
+
+import Section from '$components/Section.astro'
+import Partner from '$components/Accordion.astro'
+
+const partners = await getCollection('partners')
+
+const tiers = ['Platinum', 'Gold', 'Silver', 'Bronze'] as const
+---
+
+<Section name="Partners">
+  <p class="my-2 text-lg">
+    Without the generous support of our partners exec(ut) would not have been
+    possible.
+  </p>
+
+  {tiers.map((tier) => (
+    <div class="my-6">
+      <h2 class="py-2 font-sans font-mono text-2xl text-red">{tier} Partners</h2>
+
+      <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {partners
+          .filter((partner) => partner.data.tier === tier)
+          .map((partner) => (
+            <li>
+              <Partner partner={partner} />
+            </li>
+          ))}
+      </ul>
+    </div>
+
+    <hr class="w-full text-subtle-highlight" />
+  ))}
+</Section>

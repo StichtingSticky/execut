@@ -1,0 +1,35 @@
+---
+import Container from '$components/Container.astro'
+import { Icon } from 'astro-icon'
+---
+
+<footer class="py-8 text-white bg-brown">
+  <Container>
+    <div>
+      <a href="https://www.instagram.com/execut_conference/">
+        <Icon name="instagram" class="w-10 h-10 p-1 transition-colors fill-white hover:bg-off-white/40" />
+      </a>
+      <a href="https://www.linkedin.com/showcase/execut-conference/">
+        <Icon name="linkedin" class="w-10 h-10 p-1 transition-colors fill-white hover:bg-off-white/40" />
+      </a>
+    </div>
+
+    <br />
+
+    <p class="my-2">
+      Please take note of our
+      <a class="underline" href="/documents/code-of-conduct.pdf">Code of Conduct</a>,
+      <a class="underline" href="/documents/general-terms.pdf">Privacy Policy</a>, and
+      <a class="underline" href="/documents/privacy-policy.pdf">General Terms</a>.
+    </p>
+
+    <br />
+
+    <p class="my-2">
+      exec(ut) is an event organised by
+      <a class="underline" href="https://stichtingsticky.nl/">Stichting Sticky</a>.
+    </p>
+
+    <p class="my-2">All rights reserved.</p>
+  </Container>
+</footer>

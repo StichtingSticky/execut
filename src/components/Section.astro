@@ -1,0 +1,23 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import slugify from 'slugify'
+
+import Container from '$components/Container.astro'
+
+export interface Props extends HTMLAttributes<'section'> {
+  name: string
+  slug?: string
+}
+
+const { name, slug, ...attributes } = Astro.props
+
+const anchor = slug || slugify(name).toLowerCase()
+---
+
+<section id={anchor} class="py-2" {...attributes}>
+  <Container>
+    <h1 class="font-mono text-3xl font-bold text-red sm:text-4xl">{name}</h1>
+
+    <slot />
+  </Container>
+</section>

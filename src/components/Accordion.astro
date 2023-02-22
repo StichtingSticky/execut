@@ -1,0 +1,66 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { Image } from '@astrojs/image/components'
+import { Icon } from 'astro-icon'
+
+import Button from '$components/Button.astro'
+
+import { resolve } from '$utils/resolve'
+
+interface Props {
+  partner: CollectionEntry<'partners'>
+}
+
+const { partner } = Astro.props
+
+const { slug, data, render } = partner
+
+const { name, industry, contact } = data
+
+const { Content } = await render()
+
+const logo = resolve(slug)
+
+const { website, socials } = contact
+---
+
+<article class="relative" x-data="{ expanded: false }">
+  <Image
+    class="block object-contain w-full h-56"
+    src={logo}
+    alt={`${name} logo`}
+  />
+
+  <h1 class="mt-4 font-sans text-lg font-bold">{name}</h1>
+  <p class="mt-1 font-mono italic text-brown/40">{industry}</p>
+
+  <div class="flex">
+    {Object.entries(socials).map(([name, href]) => (
+      <a href={href}>
+        <Icon name={name} class="w-10 h-10 p-2 transition-colors fill-brown hover:bg-brown/40" />
+      </a>
+    ))}
+
+    <Button color="red" href={website} class="block h-10 py-1 ml-auto no-underline">
+      Learn more
+    </Button>
+  </div>
+
+  <div
+    class="max-w-full prose text-justify translate-x-0"
+    x-show="expanded"
+    x-collapse.min.84px>
+    <Content />
+
+    <span
+      class="fixed inset-0 bg-gradient-to-t from-off-white"
+      @click="expanded = true"
+      x-show="!expanded"
+      x-transition.opacity />
+  </div>
+
+  <button class="block m-auto mt-4" @click="expanded = ! expanded">
+    <span x-show="!expanded">Read more</span>
+    <span x-show="expanded">Read less</span>
+  </button>
+</article>

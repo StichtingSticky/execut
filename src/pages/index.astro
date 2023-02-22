@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content'
+
+import Layout from '$layouts/Base.astro'
+
+import Footer from '$components/Footer.astro'
+
+import About from '$islands/About.astro'
+import Hero from '$islands/Hero.astro'
+import Partners from '$islands/Partners.astro'
+import Programme from '$islands/Programme.astro'
+import Speakers from '$islands/Speakers.astro'
+import Venue from '$islands/Venue.astro'
+
+const partners = await getCollection('partners')
+---
+
+<Layout>
+  {partners.map(async (partner) => {
+    // Force `astro` to render all content enties. If this is ommitted the build skips rendering every event content entry for some reason
+    const { Content } = await partner.render()
+  })}
+
+  <Hero />
+
+  <main>
+    <Programme />
+    <Speakers />
+    <Partners />
+    <Venue />
+    <About />
+  </main>
+
+  <Footer />
+</Layout>

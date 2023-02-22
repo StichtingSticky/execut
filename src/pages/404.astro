@@ -1,0 +1,30 @@
+---
+import { Image } from '@astrojs/image/components'
+
+import Layout from '$layouts/Base.astro'
+
+import icon from '$assets/logo-terminal-mono.svg'
+---
+
+<Layout title="Not Found">
+  <main class="flex flex-1 flex-col bg-red text-center text-off-white">
+    <Image
+      class="m-auto h-24 w-24 fill-off-white"
+      src={icon}
+      alt="exec(ut) logo" />
+
+    <h1 class="text-lg">
+      Not Found
+      <code class="ml-1 rounded-sm bg-brown/20 p-1">404</code>
+    </h1>
+
+    <br />
+
+    <p class="mb-4 text-sm">
+      exec(ut) is an event organised by
+      <a
+        class="underline"
+        href="https://stichtingsticky.nl/">Stichting Sticky</a>.
+    </p>
+  </main>
+</Layout>
