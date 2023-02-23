@@ -1,41 +1,23 @@
-![exec(ut) logo](./src/assets/logo-terminal-red.svg)
+<div align="center">
+  <img
+    src="./sites/static/src/assets/logo-terminal.svg"
+    alt="exec(ut) logo"
+    width="128px"
+    height="128px" />
+</div>
 
-`exec(ut)` is a conference for and by IT students.
+# exec(ut)
 
-# execut
+exec(ut) is a conference for and by IT students.
 
-## Getting started
+## About this Repository
 
-This project requires `pnpm` to be
+This is a _mono-repository_ used for all packages and sites for this conference. An overview of all packages can be found here:
 
-To install all dependencies:
-
-```bash
-$ pnpm install
-```
-
-## Usage
-
-To start an development server:
-
-```bash
-$ pnpm dev 
-```
-
-## Building
-
-To create a production version of this app:
-
-```bash
-$ pnpm build
-```
-
-You can preview the production build with:
-
-```bash
-$ pnpm preview
-```
+| Package                           | Description                        |
+|:----------------------------------|:-----------------------------------|
+| [@execut/static](./sites/static/) | Static site for https://execut.nl/ |
 
 ## License
 
-Copyright 2023 Stichting Sticky. All Rights Reserved. This project is licensed under the terms of the MIT license. You can check out the full license [here](./LICENSE).
+Copyright 2023 Stichting Sticky. All Rights Reserved. This project is licensed under the terms of the `MIT` license. You can check out the full license [here](./LICENSE).
