@@ -8,6 +8,7 @@
     aria-modal
     x-bind="open"
     x-show="open"
+    x-cloak
     x-transition.opacity>
     <div class="fixed inset-0 flex bg-brown/40" @click="open = false" @keydown="open = false">
       <slot />
