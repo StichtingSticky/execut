@@ -10,38 +10,14 @@ export interface Props extends HTMLAttributes<'figure'> {
 }
 
 const { color = 'red', ...attributes } = Astro.props
-
-let styles = ['flex', 'flex-col', 'p-2']
-
-switch (color) {
-  case 'green':
-    styles.push('bg-green', 'hover:bg-green/80', 'focus:ring-green/40')
-    break
-
-  case 'red':
-    styles.push('bg-red', 'hover:bg-red/80', 'focus:ring-red/40')
-    break
-
-  case 'light-red':
-    styles.push('bg-light-red', 'hover:bg-light-red/80', 'focus:ring-light-red/40')
-    break
-
-  case 'orange':
-    styles.push('bg-orange', 'hover:bg-orange/80', 'focus:ring-orange/40')
-    break
-
-  case 'brown':
-    styles.push('bg-brown', 'hover:bg-brown/80', 'focus:ring-brown/40')
-    break
-}
-
-if (attributes?.class) styles.push(attributes.class)
 ---
 
-<figure class:list={styles}>
+<figure {...attributes}>
   <div>
     <slot name="image" />
   </div>
+
+  <hr class:list={['w-16', 'mx-auto', 'mt-2', `text-${color}`]} />
 
   <slot />
 </figure>
