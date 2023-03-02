@@ -1,8 +1,77 @@
 ---
 import Section from '$components/Section.astro'
+
+import { Icon } from 'astro-icon'
+import { CollectionEntry, getEntryBySlug } from 'astro:content';
+
+type Activity = string | CollectionEntry<'talks'> | undefined
+
+const programme = [{
+  time: '10:00',
+  activities: [
+    'Opening',
+  ],
+}, {
+  time: '10:15',
+  activities: [
+    await getEntryBySlug('talks', 'burcu-karagol-ayan'),
+  ],
+}, {
+  time: '11:15',
+  activities: [
+    await getEntryBySlug('talks', 'tim-van-der-wiel'),
+  ],
+}, {
+  time: '12:45',
+  activities: [
+    await getEntryBySlug('talks', 'rik-arends'),
+  ],
+}, {
+  time: '13:30',
+  activities: [
+    await getEntryBySlug('talks', 'koen-de-geringel'),
+  ],
+}, {
+  time: '14:15',
+  activities: [
+    await getEntryBySlug('talks', ''),
+  ],
+}, {
+  time: '15:25',
+  activities: [
+    await getEntryBySlug('talks', 'pablo-cesar'),
+  ],
+}, {
+  time: '16:15',
+  activities: [
+    await getEntryBySlug('talks', 'mat-suarez'),
+  ],
+}, {
+  time: '17:10',
+  activities: [
+    'Drinks',
+  ],
+}]
 ---
 
 <Section name="Programme">
+  <ul>
+    {programme.map(({time, duration, activities}) => {
+      return (
+        <li>
+          <time>{time}</time>
+
+          <div>
+            {activities.map((activity: Activity) => {
+              console.log(activity)
+              return activity
+            })}
+          </div>
+        </li>
+      )
+    })}
+  </ul>
+
   <p class="my-2 text-lg">
     On March 28, 2023 our venue will host <strong>7</strong> consecutive speakers,
     each of whom will give a talk on a particular aspect of software and technology.
