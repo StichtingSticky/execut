@@ -6,6 +6,7 @@ module.exports = {
   trailingComma: 'all',
   bracketSameLine: true,
   plugins: [
+    require('@prettier/plugin-xml'),
     require('prettier-plugin-astro'),
     require('prettier-plugin-tailwindcss'),
   ],
