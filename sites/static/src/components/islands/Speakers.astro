@@ -46,17 +46,17 @@ pallette = pallette
       {speakers.map(async (speaker, i) => {
         const { slug, data, render } = speaker
 
-        const { name, description } = data
+        const { name, description, path } = data
 
         const { Content } = await render()
 
-        const profile = resolve(slug)
+        const image = resolve(path)
 
         return (
           <li class="w-64 snap-center scroll-m-6 sm:scroll-m-0 sm:w-auto">
             <Modal>
               <Figure slot="control" color={pallette[i]} class="w-64 p-1 rounded sm:w-auto bg-subtle-highlight drop-shadow">
-                <Image slot="image" class="w-full h-auto rounded" src={profile} alt={name} />
+                <Image slot="image" class="w-full h-auto rounded" src={image} alt={name} />
 
                 <h1 class="my-2 font-sans text-2xl font-bold">{name}</h1>
                 <p>{description}</p>

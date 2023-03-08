@@ -1,6 +1,7 @@
 ---
 name: ASML
 industry: Semiconductor Manufacturing
+logo: $assets/partners/asml.svg
 tier: Bronze
 contact:
   website: https://www.asml.com/en/careers/students-graduates

@@ -1,6 +1,7 @@
 ---
 name: Sticky
 industry: Study Association
+logo: $assets/partners/sticky.svg
 tier: Gold
 contact:
   website: https://svsticky.nl/

@@ -1,6 +1,7 @@
 ---
 name: Thales
 industry: IT Services and IT Consulting
+logo: $assets/partners/thales.png
 tier: Silver
 contact:
   website: http://www.thalescareers.nl

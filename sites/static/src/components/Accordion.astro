@@ -15,11 +15,9 @@ const { partner } = Astro.props
 
 const { slug, data, render } = partner
 
-const { name, industry, contact } = data
+const { name, logo, industry, contact } = data
 
 const { Content } = await render()
-
-const logo = resolve(slug)
 
 const { website, socials } = contact
 ---
@@ -27,7 +25,7 @@ const { website, socials } = contact
 <article class="relative" x-data="{ expanded: false }">
   <Image
     class="block object-contain w-full h-56"
-    src={logo}
+    src={resolve(logo)}
     alt={`${name} logo`}
   />
 

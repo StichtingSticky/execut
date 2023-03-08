@@ -1,14 +1,26 @@
-export const resolve = (slug: string): any => {
-  const result = Object.entries(
-    import.meta.glob(`/src/assets/**/*.*`, {
-      import: 'default',
-      eager: true,
-    }),
-  ).find(([path, _]) => path.includes(slug))
+import { compilerOptions } from 'tsconfig.json'
 
-  if (!result) throw new Error('unable to find asset')
+const { paths } = compilerOptions
 
-  const [_, asset] = result
+const assets = import.meta.glob(`/src/**/*.*`, {
+  import: 'default',
+  eager: true,
+})
 
-  return asset
+export const resolve = (path: string): any => {
+  // Check if an prefix is present in the path
+  const match = path.match(/^(\$[^\/]+)\/(.*)$/)
+
+  if (match) {
+    // Find the prefix as defined in `tsconfig.json`
+    const prefix = Object.entries(paths)
+      .find(([path, _]) => path.includes(match[1]))
+
+    // Update path if mach was found
+    path = (prefix && `/${prefix[1][0].replace(/\*$/, match[2])}`) || path
+  }
+
+  if (!(path in assets)) throw new Error(`Unable to find asset ${path}`)
+
+  return assets[path]
 }

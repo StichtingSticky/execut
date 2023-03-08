@@ -1,6 +1,7 @@
 ---
 name: Levarne
 industry: Software Development
+logo: $assets/partners/levarne.svg
 tier: Gold
 contact:
   website: https://levarne.nl/vacatures
