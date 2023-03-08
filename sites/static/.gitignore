@@ -6,8 +6,3 @@ dist/
 
 # Generated types
 .astro/
-
-# Keep production `.env` files out of production
-.env
-.env.*
-!.env.example

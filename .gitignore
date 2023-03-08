@@ -1,2 +1,10 @@
 # Dependencies
 node_modules/
+
+# Build artifacts
+target/
+
+# Keep sensitive `.env` files out of version control
+.env
+.env*
+!.env.example
