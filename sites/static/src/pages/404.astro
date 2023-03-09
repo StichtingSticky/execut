@@ -1,6 +1,4 @@
 ---
-import { Image } from '@astrojs/image/components'
-
 import Layout from '$layouts/Base.astro'
 
 import icon from '$assets/logo-terminal-mono.svg'
@@ -8,10 +6,11 @@ import icon from '$assets/logo-terminal-mono.svg'
 
 <Layout title="Not Found">
   <main class="flex flex-1 flex-col bg-red text-center text-off-white">
-    <Image
+    <img
       class="m-auto h-24 w-24 fill-off-white"
-      src={icon}
-      alt="exec(ut) logo" />
+      src={icon.src}
+      alt="exec(ut) logo"
+    />
 
     <h1 class="text-lg">
       Not Found
@@ -22,9 +21,7 @@ import icon from '$assets/logo-terminal-mono.svg'
 
     <p class="mb-4 text-sm">
       exec(ut) is an event organised by
-      <a
-        class="underline"
-        href="https://stichtingsticky.nl/">Stichting Sticky</a>.
+      <a class="underline" href="https://stichtingsticky.nl/">Stichting Sticky</a>.
     </p>
   </main>
 </Layout>

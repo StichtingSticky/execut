@@ -1,12 +1,10 @@
 ---
-import { Image } from '@astrojs/image/components'
-
 import logo from '$assets/logo-terminal.svg'
 ---
 
 <nav class="sticky top-0 z-50 flex h-14 w-full flex-wrap items-center justify-center bg-gradient-to-r from-orange/80 via-red/80 to-light-red/80 px-4 drop-shadow-md backdrop-blur sm:static sm:justify-between sm:bg-none sm:px-0 sm:drop-shadow-none sm:backdrop-blur-none lg:my-12 lg:flex-row lg:flex-nowrap lg:px-8">
   <div class="mt-10 hidden items-center sm:flex sm:justify-between sm:pl-8 lg:mt-0 lg:grow lg:basis-0 lg:justify-start">
-    <Image class="w-12 h-12" src={logo} alt="exec(ut) logo" />
+    <img class="w-12 h-12" src={logo.src} alt="exec(ut) logo" />
   </div>
 
   <slot />

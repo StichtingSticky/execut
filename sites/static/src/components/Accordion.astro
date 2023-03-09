@@ -1,11 +1,9 @@
 ---
 import type { CollectionEntry } from 'astro:content'
-import { Image } from '@astrojs/image/components'
+import { Image } from 'astro:assets'
 import { Icon } from 'astro-icon'
 
 import Button from '$components/Button.astro'
-
-import { resolve } from '$utils/resolve'
 
 interface Props {
   partner: CollectionEntry<'partners'>
@@ -23,11 +21,19 @@ const { website, socials } = contact
 ---
 
 <article class="relative" x-data="{ expanded: false }">
-  <Image
-    class="block object-contain w-full h-56"
-    src={resolve(logo)}
-    alt={`${name} logo`}
-  />
+  {logo.format === 'svg' ?
+    <img
+      class="block object-contain w-full h-56"
+      src={logo.src}
+      alt={`${name} logo`}
+    />
+  :
+    <Image
+      class="block object-contain w-full h-56"
+      src={logo}
+      alt={`${name} logo`}
+    />
+  }
 
   <h1 class="mt-4 font-sans text-lg font-bold">{name}</h1>
   <p class="mt-1 font-mono italic text-brown/40">{industry}</p>

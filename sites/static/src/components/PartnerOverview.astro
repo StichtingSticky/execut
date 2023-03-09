@@ -13,34 +13,34 @@ const partners = await getCollection('partners')
   </h3>
 
   <ul class="grid place-content-evenly gap-4 md:grid-cols-2">
-    {
-      partners
-        .filter((partner) => {
-          const { tier } = partner.data
+    {partners.filter((partner) => {
+      const { tier } = partner.data
 
-          return tier === 'Gold' || tier === 'Platinum'
-        })
-        .map((partner) => {
-          const { slug, data } = partner
+      return tier === 'Gold' || tier === 'Platinum'
+    }).map((partner) => {
+      const { slug, data } = partner
 
-          const { name } = data
+      const { name, logo } = data
 
-          const logo = resolve(slug)
-
-          return (
-            <li class="flex h-24 px-4">
-              <Image
-                class="object-contain saturate-50 transition hover:saturate-100"
-                alt={name}
-                src={logo}
-              />
-            </li>
-          )
-        })
-    }
+      return (
+        <li class="flex h-24 px-4">
+          {logo.format === 'svg' ?
+            <img
+              class="object-contain saturate-50 transition hover:saturate-100"
+              src={logo.src}
+              alt={name}
+            />
+          :
+            <Image
+              class="object-contain saturate-50 transition hover:saturate-100"
+              src={logo}
+              alt={name}
+            />
+          }
+        </li>
+      )
+    })}
   </ul>
 
-  <a class="my-2 text-center text-green underline" href="#partners"
-    >And many more!</a
-  >
+  <a class="my-2 text-center text-green underline" href="#partners">And many more!</a>
 </div>

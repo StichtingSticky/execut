@@ -1,7 +1,7 @@
 ---
 name: Tim van der Wiel
 description: Founder at gospooky | Forbes 30 Under 30
-path: $assets/speakers/tim-van-der-wiel.jpg
+portrait: ~/assets/speakers/tim-van-der-wiel.jpg
 ---
 
 Tim van der Wiel, 24, is the founder of Gospooky, a social technology agency that keeps leading brands at the forefront of social.

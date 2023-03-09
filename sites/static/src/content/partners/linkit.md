@@ -1,7 +1,7 @@
 ---
 name: LINKIT
 industry: IT Services and IT Consulting
-logo: $assets/partners/linkit.svg
+logo: ~/assets/partners/linkit.svg
 tier: Silver
 contact:
   website: https://www.linkit.nl/
