@@ -2,8 +2,7 @@ import { compilerOptions } from 'tsconfig.json'
 
 const { paths } = compilerOptions
 
-const assets = import.meta.glob(`/src/**/*.*`, {
-  import: 'default',
+const assets = import.meta.glob(`/src/assets/**/*.*`, {
   eager: true,
 })
 
@@ -22,5 +21,9 @@ export const resolve = (path: string): any => {
 
   if (!(path in assets)) throw new Error(`Unable to find asset ${path}`)
 
-  return assets[path]
+  const module = assets[path]
+
+  if (!('default' in module)) throw new Error(`Module ${path} does not expose default`)
+
+  return module.default
 }
