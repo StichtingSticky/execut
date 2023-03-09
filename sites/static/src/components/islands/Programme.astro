@@ -1,84 +1,99 @@
 ---
-import Section from '$components/Section.astro'
+import Section from '$components/Section.astro';
+import { getEntryBySlug } from 'astro:content'
 
-import { Icon } from 'astro-icon'
-import { CollectionEntry, getEntryBySlug } from 'astro:content';
-
-type Activity = string | CollectionEntry<'talks'> | undefined
-
-const programme = [{
-  time: '10:00',
-  activities: [
-    'Opening',
-  ],
-}, {
-  time: '10:15',
-  activities: [
-    await getEntryBySlug('talks', 'burcu-karagol-ayan'),
-  ],
-}, {
-  time: '11:15',
-  activities: [
-    await getEntryBySlug('talks', 'tim-van-der-wiel'),
-  ],
-}, {
-  time: '12:45',
-  activities: [
-    await getEntryBySlug('talks', 'rik-arends'),
-  ],
-}, {
-  time: '13:30',
-  activities: [
-    await getEntryBySlug('talks', 'koen-de-geringel'),
-  ],
-}, {
-  time: '14:15',
-  activities: [
-    await getEntryBySlug('talks', ''),
-  ],
-}, {
-  time: '15:25',
-  activities: [
-    await getEntryBySlug('talks', 'pablo-cesar'),
-  ],
-}, {
-  time: '16:15',
-  activities: [
-    await getEntryBySlug('talks', 'mat-suarez'),
-  ],
-}, {
-  time: '17:10',
-  activities: [
-    'Drinks',
-  ],
-}]
+const programme = [
+  {
+    time: '9:00',
+    activities: {
+      common: 'Check in',
+    },
+  }, {
+    time: '10:00',
+    activities: {
+      common: 'Opening',
+    },
+  }, {
+    time: '10:15',
+    activities: {
+      talk: await getEntryBySlug('talks', 'burcu-karagol-ayan'),
+    },
+  }, {
+    time: '11:15',
+    activities: {
+      talk: await getEntryBySlug('talks', 'tim-van-der-wiel'),
+    },
+  }, {
+    time: '12:00',
+    activities: {
+      common: 'Lunch',
+    },
+  }, {
+    time: '12:45',
+    activities: {
+      talk: await getEntryBySlug('talks', 'rik-arends'),
+      workshop: await getEntryBySlug('workshops', 'bpm-company'),
+    },
+  }, {
+    time: '13:30',
+    activities: {
+      talk: await getEntryBySlug('talks', 'koen-de-geringel'),
+    },
+  }, {
+    time: '14:15',
+    activities: {
+      talk: await getEntryBySlug('talks', 'tamara-mtsentlintze'),
+      workshop: await getEntryBySlug('workshops', 'levarne'),
+    },
+  }, {
+    time: '14:55',
+    activities: {
+      common: 'Coffee Break',
+    },
+  }, {
+    time: '15:25',
+    activities: {
+      talk: await getEntryBySlug('talks', 'pablo-cesar'),
+      workshop: await getEntryBySlug('workshops', 'linkit'),
+    },
+  }, {
+    time: '16:15',
+    activities: {
+      talk: await getEntryBySlug('talks', 'mat-suarez'),
+    },
+  }, {
+    time: '17:10',
+    activities: {
+      common: 'Closing & Drinks',
+    },
+  },
+]
 ---
 
 <Section name="Programme">
-  <ul>
-    {programme.map(({time, duration, activities}) => {
-      return (
-        <li>
-          <time>{time}</time>
+  <ul class="my-4">
+    {programme.map((slot, i) => {
+      const { time, activities } = slot
 
-          <div>
-            {activities.map((activity: Activity) => {
-              console.log(activity)
-              return activity
-            })}
-          </div>
-        </li>
-      )
+      const styles = ['grid', 'grid-cols-5', 'gap-2', 'py-2']
+
+      // Alternate background color
+      if (i % 2 === 0) styles.push('bg-subtle-highlight')
+
+      return <li class:list={styles}>
+        <div class="font-mono text-right text-brown/60"><time>{time}</time></div>
+
+        <div class="col-span-2">
+          {'common' in activities && activities.common}
+
+          {'talk' in activities && activities.talk?.data.title}
+        </div>
+
+        {'workshop' in activities && <div class="col-span-2">
+
+          {activities.workshop?.data.title}
+        </div>}
+      </li>
     })}
   </ul>
-
-  <p class="my-2 text-lg">
-    On March 28, 2023 our venue will host <strong>7</strong> consecutive speakers,
-    each of whom will give a talk on a particular aspect of software and technology.
-  </p>
-
-  <p class="my-2 text-lg">
-    Futhermore we will host <strong>3</strong> workshops throughout the day! More
-    information about the topics, timeslots and enrollment will be announced shortly.
-  </p>
 </Section>

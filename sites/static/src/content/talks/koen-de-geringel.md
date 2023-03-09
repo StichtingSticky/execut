@@ -1,3 +1,7 @@
+---
+title: Playful Digital User Experiences
+---
+
 Playful Digital User Experiences: what does it take to create more than the sum of its team members. 
 
 Developing playful digital products is an interesting journey. It takes a multidisciplinary team of developers, visual designers, game designers etc. to produce them. How to translate an assignment into a valuable user experience but also create a maintainable, flexible and affordable software solution? How to utilise creativity and expertise from all team members? How to validate initial assumptions?
