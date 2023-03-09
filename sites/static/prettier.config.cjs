@@ -9,6 +9,10 @@ module.exports = {
     require('@prettier/plugin-xml'),
     require('prettier-plugin-astro'),
     require('prettier-plugin-tailwindcss'),
+    require('prettier-plugin-svelte'),
   ],
-  overrides: [{ files: '*.astro', options: { parser: 'astro' } }],
+  overrides: [
+    { files: '*.astro', options: { parser: 'astro' } },
+    { files: '*.svelte', options: { parser: 'svelte' } },
+  ],
 }

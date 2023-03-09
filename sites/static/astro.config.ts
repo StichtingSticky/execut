@@ -5,6 +5,7 @@ import compress from 'astro-compress'
 import critters from 'astro-critters'
 import image from '@astrojs/image'
 import sitemap from '@astrojs/sitemap'
+import svelte from '@astrojs/svelte'
 import tailwind from '@astrojs/tailwind'
 
 // https://astro.build/config
@@ -16,6 +17,7 @@ export default defineConfig({
       serviceEntryPoint: '@astrojs/image/sharp',
     }),
     sitemap(),
+    svelte(),
     tailwind(),
 
     // Apply the `compress` integration last for best optimizations

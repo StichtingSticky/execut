@@ -8,6 +8,7 @@
       "$components/*": ["src/components/*"],
       "$content/*": ["src/content/*"],
       "$icons/*": ["src/icons/*"],
+      "$interactive/*": ["src/components/interactive/*"],
       "$islands/*": ["src/components/islands/*"],
       "$layouts/*": ["src/layouts/*"],
       "$pages/*": ["src/pages/*"],
