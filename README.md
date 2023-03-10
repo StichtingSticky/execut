@@ -12,10 +12,11 @@ exec(ut) is a conference for and by IT students.
 
 ## About this Repository
 
-This is a _mono-repository_ used for all packages and sites for this conference. An overview of all packages can be found here:
+This is a _mono-repository_ used for all packages for this conference. An overview of all packages can be found here:
 
 | Package                           | Description                        |
 |:----------------------------------|:-----------------------------------|
+| [execut](./packages/execut/)      | REST API for the exec(ut) website  |
 | [@execut/static](./sites/static/) | Static site for https://execut.nl/ |
 
 ## License

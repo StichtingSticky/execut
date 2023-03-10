@@ -1,0 +1,28 @@
+[package]
+name = "execut"
+description = "REST API for the exec(ut) website"
+version = "0.1.0"
+authors = ["Sem van Nieuwenhuizen <hello@leuke-naam.fyi>"]
+edition = "2021"
+homepage = "https://execut.nl/"
+repository = "https://github.com/StichtingSticky/execut.git"
+license = "MIT"
+publish = false
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+argon2 = "0.5.0"
+async-trait = "0.1.63"
+axum = "0.6.4"
+chrono = { version = "0.4.23", features = ["serde"] }
+clap = { version = "4.1.4", features = ["derive", "env"] }
+dotenvy = { version = "0.15.6", features = ["clap"] }
+hmac = "0.12.1"
+jsonwebtoken = "8.2.0"
+rand = "0.8.5"
+serde = { version = "1.0.152", features = ["derive"] }
+serde_json = "1.0.91"
+sqlx = { version = "0.6.2", features = ["chrono", "postgres", "runtime-tokio-rustls", "uuid"] }
+tokio = { version = "1.25.0", features = ["full"] }
+uuid = { version = "1.2.2", features = ["serde", "v4"] }
