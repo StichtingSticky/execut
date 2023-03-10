@@ -8,6 +8,30 @@ import Partners from '$islands/Partners.astro'
 import Programme from '$islands/Programme.astro'
 import Speakers from '$islands/Speakers.astro'
 import Venue from '$islands/Venue.astro'
+
+export interface Params {
+  section?: string
+}
+
+export async function getStaticPaths() {
+  // The list of sections of the home page
+  const sections = [
+    'home',
+    'programme',
+    'speakers',
+    'partners',
+    'venue',
+    'about',
+    'imprint',
+
+    // This will ensure that `GET /` returns this page
+    undefined,
+  ]
+
+  return sections.map((section) => { return { params: { section }}})
+}
+
+const { section } = Astro.params as Params
 ---
 
 <Layout>
@@ -19,3 +43,4 @@ import Venue from '$islands/Venue.astro'
   <About />
   <Footer />
 </Layout>
+
