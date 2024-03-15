@@ -72,10 +72,8 @@ for await (const host of hosts ?? [])
       {entries && entries.map(({ slug, data }) => {
         const { name, description, portrait, host } = data
 
-        const [_, link] = slug.split('/')
-
         return (
-          <a class="p-1 transition hover:bg-subtle-highlight hover:drop-shadow" href={`/speakers/${link}`}>
+          <a class="p-1 transition hover:bg-subtle-highlight hover:drop-shadow" href={`/speakers/${slug}`}>
             <Image class="w-full" src={portrait} alt={name} />
 
             <h1 class="mt-2 font-mono text-lg font-bold">

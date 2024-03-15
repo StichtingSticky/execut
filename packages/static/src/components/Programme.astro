@@ -39,15 +39,13 @@ const { programme } = Astro.props
 
               const { slug, data } = entry
 
-              const [_, link] = slug.split('/')
-
               const { title, speaker } = data
 
               const name = await getEntry(speaker)
                 .then(({ data }) => data.name)
 
               return (
-                <a class="flex-1 transition-opacity blok hover:opacity-80" href={`/speakers/${link}`}>
+                <a class="flex-1 transition-opacity blok hover:opacity-80" href={`/speakers/${slug}`}>
                   <small class="text-brown/60">{name}</small>
                   <p>{title}</p>
                 </a>
@@ -59,15 +57,13 @@ const { programme } = Astro.props
 
               const { slug, data } = entry
 
-              const [_, link] = slug.split('/')
-
               const { title, organizer } = data
 
               const name = await getEntry(organizer)
                 .then(({ data }) => data.name)
 
               return (
-                <a class="flex-1 transition-opacity blok hover:opacity-80" href={`/workshops/${link}`}>
+                <a class="flex-1 transition-opacity blok hover:opacity-80" href={`/workshops/${slug}`}>
                   <small class="text-brown/60">{name}</small>
                   <p>{title}</p>
                 </a>
