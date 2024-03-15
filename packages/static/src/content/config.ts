@@ -1,4 +1,4 @@
-import { defineCollection, reference, z } from 'astro:content'
+import { defineCollection, getEntry, reference, z } from 'astro:content'
 
 export const roles = [
   'chair',
@@ -43,17 +43,51 @@ const editions = defineCollection({
         ]).array(),
       }),
     ]).array().optional(),
-    hosts: reference('speakers').array().optional(),
-    speakers: reference('speakers').array().optional(),
-    talks: reference('talks').array().optional(),
+    talks: reference('talks').array().default([]),
+    speakers: reference('speakers').array().default([]),
+    hosts: reference('speakers').array().default([]),
     partners: z.record(z.enum(tiers), reference('partners').array()).optional(),
-    workshops: reference('workshops').array().optional(),
+    workshops: reference('workshops').array().default([]),
     venue: reference('venues'),
     committee: z.object({
       name: z.string(),
       role: z.enum(roles),
       href: z.string().url().optional(),
     }).array(),
+  }).transform(async (data) => {
+    const { programme } = data
+
+    if (!programme) return data
+
+    let { talks, speakers, workshops } = data
+
+    if (talks.length > 0 || speakers.length > 0 || workshops.length > 0)
+      throw new Error('Do not set `talks`, `speakers`, or `workshops` manually')
+
+    for (const slot of programme) {
+      const { type } = slot
+
+      if (type === 'talk') {
+        const { activities } = slot
+
+        for await (const { type, activity } of activities) {
+          if (type === 'talk') {
+            talks.push(activity)
+
+            const speaker = await getEntry(activity)
+              .then(({ data }) => data.speaker)
+
+            speakers.push(speaker)
+          }
+
+          if (type === 'workshop') {
+            workshops.push(activity)
+          }
+        }
+      }
+    }
+
+    return data
   }),
 })
 

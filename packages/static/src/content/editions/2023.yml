@@ -59,22 +59,6 @@ programme:
     title: Closing & Drinks
 hosts:
   - 2023/juney-dijkstra
-speakers:
-  - 2023/burcu-karagol-ayan
-  - 2023/koen-de-geringel
-  - 2023/pablo-cesar
-  - 2023/tamara-mchedlidze
-  - 2023/mat-suarez
-  - 2023/rik-arends
-  - 2023/tim-van-der-wiel
-talks:
-  - 2023/burcu-karagol-ayan
-  - 2023/koen-de-geringel
-  - 2023/mat-suarez
-  - 2023/pablo-cesar
-  - 2023/rik-arends
-  - 2023/tamara-mchedlidze
-  - 2023/tim-van-der-wiel
 partners:
   platinum:
     - bpm-company
@@ -91,10 +75,6 @@ partners:
     - thales
   bronze:
     - asml
-workshops:
-  - 2023/bpm-company
-  - 2023/levarne
-  - 2023/linkit
 venue: de-kom
 committee:
   - name: Jorden Bakker
