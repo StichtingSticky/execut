@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntry } from 'astro:content'
+import { getCollection, getEntries, getEntry } from 'astro:content'
 
 import Layout from '~/layouts/section.astro'
 
@@ -12,14 +12,14 @@ const [entry] = await getCollection('editions')
 
 const { id, data } = entry
 
-const { date, venue } = data
+const { date, hosts, speakers, workshops, venue } = data
 
 const { name, location } = await getEntry(venue)
   .then(({ data }) => data)
 
 const summary = [
-  ['speakers', 6],
-  ['workshops', 4],
+  ['speakers', speakers?.length || 'TBA'],
+  ['workshops', workshops?.length || 'TBA'],
   ['venue', name],
   ['location', location],
 ]
