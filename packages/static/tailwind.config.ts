@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import colors from 'tailwindcss/colors'
 
 import typography from '@tailwindcss/typography'
 
@@ -6,18 +7,29 @@ export default {
   content: ['./src/**/*.{astro,js,jsx,ts,tsx}'],
   theme: {
     colors: {
-      'white': '#fff',
-      'off-white': '#fffaf8',
-      'subtle-highlight': '#f2e8e9',
-      'red': '#ef4955',
-      'red-highlight': '#f7c0c2',
-      'light-red': '#ff7276',
-      'orange': '#f7974d',
-      'orange-highlight': '#f8dfcb',
-      'green': '#43a095',
-      'green-highlight': '#b3e1dc',
+      'inherit': colors.inherit,
+      'current': colors.current,
+      'transparent': colors.transparent,
+      'black': colors.black,
+      'white': colors.white,
       'brown': '#433032',
-      'black': '#000',
+      'background': '#fffaf8',
+      'subtle-highlight': '#f2e8e9',
+      'primary': {
+        DEFAULT: '#ef4955',
+        'light': '#f26d77',
+        'highlight': '#f7c0c2',
+      },
+      'secondary': {
+        DEFAULT: '#f7974d',
+        'light': '#f5a86d',
+        'highlight': '#f8dfcb',
+      },
+      'accent': {
+        DEFAULT: '#43a095',
+        'light': '#6ed9d2',
+        'highlight': '#b3e1dc',
+      },
     },
     container: {
       center: true,

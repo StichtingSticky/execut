@@ -12,18 +12,18 @@ interface Props {
 const { edition, date, venue } = Astro.props
 ---
 
-<nav class="sticky top-0 z-50 flex flex-wrap items-center justify-center w-full sm:px-4 bg-gradient-to-r from-orange/80 via-red/80 to-light-red/80 drop-shadow-md backdrop-blur sm:static sm:justify-between sm:bg-none sm:drop-shadow-none sm:backdrop-blur-none lg:my-12 lg:flex-row lg:flex-nowrap lg:px-8">
+<nav class="sticky top-0 z-50 flex flex-wrap items-center justify-center w-full sm:px-4 bg-gradient-to-r from-secondary/80 via-primary/60 to-primary-light/80 drop-shadow-md backdrop-blur sm:static sm:justify-between sm:bg-none sm:drop-shadow-none sm:backdrop-blur-none lg:my-12 lg:flex-row lg:flex-nowrap lg:px-8">
   <a class="items-center hidden mt-10 sm:flex sm:justify-between sm:pl-8 lg:mt-0 lg:grow lg:basis-0 lg:justify-start" href="/">
     <Icon class="w-12 h-12" name="icon-terminal" />
   </a>
 
-  <a class="flex justify-center flex-auto order-first py-4 overflow-x-auto font-mono text-sm leading-relaxed text-center text-white basis-full sm:border-b sm:border-red/20 sm:py-4 sm:text-red lg:order-none lg:mx-0 lg:basis-auto lg:border-0 lg:py-0" href="/">
+  <a class="flex justify-center flex-auto order-first py-4 overflow-x-auto font-mono text-sm leading-relaxed text-center text-white basis-full sm:border-b sm:border-primary/20 sm:py-4 sm:text-primary lg:order-none lg:mx-0 lg:basis-auto lg:border-0 lg:py-0" href="/">
     {new Intl.DateTimeFormat('en-GB', {
       day: 'numeric',
       month: 'long',
       year: 'numeric',
     }).format(date)}
-    <span class="mx-2 text-white/60 sm:text-red/40">{'|>'}</span>
+    <span class="mx-2 text-white/60 sm:text-primary/40">{'|>'}</span>
     {venue}
   </a>
 

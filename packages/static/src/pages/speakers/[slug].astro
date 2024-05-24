@@ -36,7 +36,7 @@ const { Content } = await render()
     <div class="flex flex-col items-center">
       <Image class="object-cover w-64 shadow-2xl aspect-square" src={portrait} alt={name} />
 
-      <h2 class="mt-4 font-mono text-2xl font-bold text-red">{name}</h2>
+      <h2 class="mt-4 font-mono text-2xl font-bold text-primary">{name}</h2>
       <p class="text-md text-brown/60">{description}</p>
     </div>
 
@@ -54,7 +54,7 @@ const { Content } = await render()
 
     return (
       <Section>
-        <h1 class="mt-8 font-mono text-3xl font-bold sm:mt-6 md:mt-0 text-red sm:text-4xl">{title}</h1>
+        <h1 class="mt-8 font-mono text-3xl font-bold sm:mt-6 md:mt-0 text-primary sm:text-4xl">{title}</h1>
 
         <div class="mt-4 prose text-justify max-w-none sm:mt-6">
           <Content />
