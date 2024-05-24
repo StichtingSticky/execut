@@ -19,6 +19,10 @@ export default {
       'brown': '#433032',
       'black': '#000',
     },
+    container: {
+      center: true,
+      padding: '2rem',
+    },
     fontFamily: {
       'sans-serif': `"Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif`,
       'serif': `"Lora", Georgia, serif`,
