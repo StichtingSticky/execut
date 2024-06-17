@@ -33,7 +33,7 @@ export default {
     },
     container: {
       center: true,
-      padding: '2rem',
+      padding: '1rem',
     },
     fontFamily: {
       'sans-serif': `"Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif`,
